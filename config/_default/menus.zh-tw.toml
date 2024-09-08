@@ -22,9 +22,21 @@
   weight = 2
 
 [[main]]
+  name = "Materials"
+  pageRef = "materials"
+  weight = 3
+
+[[main]]
   name = "Prose"
   pageRef = "prose"
-  weight = 3
+  weight = 4
+
+[[main]]
+  name = "IoT Security"
+  parent = "Materials"
+  pageRef = "Materials/IoT_Security"
+  weight = 20
+
 
 
 #[[main]]

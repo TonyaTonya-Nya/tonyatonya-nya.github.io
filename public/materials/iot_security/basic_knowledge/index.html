@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="zh-tw" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>2. IoT 設備安全基礎知識 &middot; Tonya&#39;s Edger Corner</title>
+  <meta name="title" content="2. IoT 設備安全基礎知識 &middot; Tonya&#39;s Edger Corner" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/materials/iot_security/basic_knowledge/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.54382a1f2108c95a3b5170a2b42b9b0228b09f9d37a7c2d07108bb31a6a56440ecc43c4e2b0f6e296b53b50368d6647d4666579d135af38642318f6ec030e8ad.css"
+    integrity="sha512-VDgqHyEIyVo7UXCitCubAiiwn503p8LQcQi7MaalZEDsxDxOKw9uKWtTtQNo1mR9RmZXnRNa84ZCMY9uwDDorQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.8613168837e35f3f882df60a8a810e212d581a4eea26eeb2554e527c6eab9e57acc03a2533cbd5c6084f825ce3a655953923f21e1de2e6b8014eddf510fa58e7.js"
+    integrity="sha512-hhMWiDfjXz&#43;ILfYKioEOIS1YGk7qJu6yVU5SfG6rnleswDolM8vVxghPglzjplWVOSPyHh3i5rgBTt31EPpY5w==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/materials/iot_security/basic_knowledge/">
+  <meta property="og:site_name" content="Tonya&#39;s Edger Corner">
+  <meta property="og:title" content="2. IoT 設備安全基礎知識">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="materials">
+    <meta property="article:published_time" content="2024-09-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-08T00:00:00+00:00">
+      <meta property="og:see_also" content="http://localhost:1313/materials/iot_security/exercise/">
+      <meta property="og:see_also" content="http://localhost:1313/materials/iot_security/web_application_security_vulnerabilities/">
+      <meta property="og:see_also" content="http://localhost:1313/materials/iot_security/introduction/">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="2. IoT 設備安全基礎知識">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "各種資安教材",
+    "name": "2. IoT 設備安全基礎知識",
+    "headline": "2. IoT 設備安全基礎知識",
+    
+    
+    "inLanguage": "zh-tw",
+    "url" : "http:\/\/localhost:1313\/materials\/iot_security\/basic_knowledge\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Tonya"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-09-08T00:00:00\u002b00:00",
+    "datePublished": "2024-09-08T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-09-08T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "5247"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Tonya" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>快轉到主要內容</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Tonya&rsquo;s Edger Corner</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Home
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/blogs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/materials/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Materials
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/materials/iot_security/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            IoT Security
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/prose/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Prose
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Home
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/blogs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Materials
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/materials/iot_security/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            IoT Security
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/prose/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Prose
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+  
+   
+  
+ 
+
+        
+            <div class="w-full h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/img/background_hu5586356105617036979.png);"></div>
+        
+    
+  
+  
+
+
+  <div id="progbar"></div>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      2. IoT 設備安全基礎知識
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-09-08T00:00:00&#43;00:00">8 September 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5247 字</span><span class="px-2 text-primary-500">&middot;</span><span title="預計閱讀時間">11 分鐘</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/iot_security/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    IoT_Security
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/materials/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Materials
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  <script src='/js/progbar.js'></script>
+
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目錄
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#iot-常用通訊協定">🦉IoT 常用通訊協定</a>
+      <ul>
+        <li><a href="#http">🐧HTTP</a></li>
+        <li><a href="#https">🐧HTTPS</a></li>
+        <li><a href="#telnet">🐧TELNET</a></li>
+        <li><a href="#wifi">🐧WiFi</a></li>
+        <li><a href="#mqtt">🐧MQTT</a></li>
+      </ul>
+    </li>
+    <li><a href="#iot-常用加密技術類型">🦉IoT 常用加密技術類型</a>
+      <ul>
+        <li><a href="#-通訊加密">🐧 通訊加密</a></li>
+        <li><a href="#-資料加密">🐧 資料加密</a></li>
+        <li><a href="#-身份驗證金鑰">🐧 身份驗證金鑰</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目錄
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#iot-常用通訊協定">🦉IoT 常用通訊協定</a>
+      <ul>
+        <li><a href="#http">🐧HTTP</a></li>
+        <li><a href="#https">🐧HTTPS</a></li>
+        <li><a href="#telnet">🐧TELNET</a></li>
+        <li><a href="#wifi">🐧WiFi</a></li>
+        <li><a href="#mqtt">🐧MQTT</a></li>
+      </ul>
+    </li>
+    <li><a href="#iot-常用加密技術類型">🦉IoT 常用加密技術類型</a>
+      <ul>
+        <li><a href="#-通訊加密">🐧 通訊加密</a></li>
+        <li><a href="#-資料加密">🐧 資料加密</a></li>
+        <li><a href="#-身份驗證金鑰">🐧 身份驗證金鑰</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+
+        
+<details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5" >
+    
+    <summary
+        class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+        IoT 設備檢測實務：攻擊實戰與防禦指南 - 本文屬於一個選集。
+    </summary>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/introduction/">
+            § 1: 1. IoT 設備安全簡介
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        § 2: 本文
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/web_application_security_vulnerabilities/">
+            § 3: 3. IoT 網路應用系統安全弱點
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/exercise/">
+            § 4: 4. IoT 設備檢測實戰演練
+        </a>
+    </div>
+    
+    
+
+
+</details>
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">🦉IoT 常用通訊協定 
+    <div id="iot-%E5%B8%B8%E7%94%A8%E9%80%9A%E8%A8%8A%E5%8D%94%E5%AE%9A" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#iot-%E5%B8%B8%E7%94%A8%E9%80%9A%E8%A8%8A%E5%8D%94%E5%AE%9A" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">🐧HTTP 
+    <div id="http" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#http" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>超文字傳輸通訊協定 (HyperText Transfer Protocol，HTTP) 是一個用於在網際網路上應用程式層的傳輸超文本的通訊協定。HTTP 是一種客戶端-伺服器協定，由客戶端負責發送請求，而伺服器端則負責回應請求。HTTP 協定的主要版本有 HTTP/1.0、HTTP/1.1 和 HTTP/2，其中 HTTP/1.1 是目前使用最廣泛的版本。HTTP 是一種無狀態協定，每個請求和回應都是獨立的，伺服器不會記住之前的請求或回應。由於 HTTP 不需要維護任何狀態資訊，因此瀏覽器可以使用 Cookie、Session、Local Storage 等方式儲存狀態，並使用在每一次的 Request 上，使得伺服器更容易擴展。HTTP 使用 TCP/IP 協定來傳輸資訊。當用戶在瀏覽器中輸入 URL 後，瀏覽器將向伺服器發送 HTTP 請求。伺服器收到請求後，根據請求的內容和 URL 執行相對應的操作，然後將結果以 HTTP 響應的形式回傳給客戶端。</p>
+<p>客戶端請求是以 HTTP 請求 (HTTP Request) 的方式傳送。通常包含請求方法、請求標頭、請求本體、資源位置。請求方法 (HTTP Request Method) 常被稱為 HTTP 方法，例如：GET、POST、PUT、DELETE 等。請求標頭 (HTTP Header Fields) 則包含允許的請求格式、認證資訊等。請求本體 (HTTP Body) 是送出請求的資料，例如填寫表單的資訊。資源位置則是資源所在位置的全球資源定位器 (Uniform Resource Locator，URL)。</p>
+<p>伺服器回應是以 HTTP 響應 (HTTP Response) 的方式傳送。通常包含狀態碼、回應標頭、回應本體。狀態碼 (HTTP Status Code)，例如：200 代表 OK、404 代表 Not Found。回應標頭則包含回應的內容格式、長度等。回應本體則是回應請求的資料，通常是 HTML 頁面、圖片、Json 檔案等。</p>
+<p>在 IoT 設備中，HTTP 是一種常見的通訊協定，用於實現設備之間資料傳輸和通訊。智慧居家系統中的各種設備可以通過 HTTP 協定傳輸資料，例如：溫度、濕度、光照強度等等，這些資料可以被中央控制系統蒐集和分析。工業自動化控制系統中的設備也可以通過 HTTP 協定進行控制和管理。由於 IoT 系統中的設備數量龐大，因此在資料傳輸和通訊方面需要具有相當高的穩定性。為了提高 HTTP 協定的效率和穩定性，可以使用 HTTP/2 協定、WebSocket 協定等等。</p>
+
+
+<h3 class="relative group">🐧HTTPS 
+    <div id="https" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#https" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>超文字傳輸安全協定 (HyperText Transfer Protocol Secure，HTTPS) 是一種用於在網際網路上進行安全通訊的通訊協定。HTTPS 基於 HTTP 協定，但使用了安全通訊協定 (Secure Sockets Layer，SSL) 及傳輸層安全性協定 (Transport Layer Security，TLS) 來加密通訊內容。SSL 是 TLS 的前身，目前的 HTTPS 大多使用 TLS，這使得使用 HTTPS 的網站能夠更好地保護使用者的隱私和安全。</p>
+<p>當使用者在瀏覽器中輸入 HTTPS 網址後，瀏覽器將向伺服器發送 HTTPS 請求。與 HTTP 請求不同的是，HTTPS 請求使用 SSL 或 TLS 協定進行加密以保護請求內容的安全性。伺服器收到請求後，使用 SSL 或 TLS 協定對請求進行解密，然後根據請求的內容和 URL 執行相應的操作，最後再使用 SSL 或 TLS 協定將結果加密後以 HTTPS 響應的形式回傳給客戶端。</p>
+<p>HTTPS 與 HTTP 的區別在於加密通訊內容。HTTPS 使用了 SSL/TLS 協定來加密通訊內容，使得通訊內容無法被竊聽、修改或偽造。這使得使用 HTTPS 的網站能夠更好地保護用戶的隱私和安全。使用 HTTPS 的網站需要使用 SSL/TLS 憑證來進行加密通訊內容。憑證是一種數位證書，用於證明網站的身份和加密通訊內容。憑證可以從網站的 SSL/TLS 憑證發行機構 (Certificate Authority，CA) 處獲得。網站需要向 CA 提供相關的證明，以證明網站的身份和合法性。CA 在確認網站的身份和合法性後，會為網站簽發 SSL/TLS 憑證。瀏覽器在訪問使用 HTTPS 的網站時，會自動檢查網站的 SSL/TLS 憑證，以確保通訊內容的安全性。</p>
+
+
+<h3 class="relative group">🐧TELNET 
+    <div id="telnet" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#telnet" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>遠端登入協定 (Telnet) 是一種用於在網際網路上進行遠端登入的通訊協定。使用 Telnet，使用者可以透過網際網路從本地主機登入到遠端主機上，並在遠端主機上執行命令和應用程式。Telnet 協定是一種無加密協定，所有通訊內容都是明文傳輸。所以使用 Telnet 登入遠端主機時，密碼和其他敏感資訊都可能被竊聽、修改或偽造。因此使用 Telnet 登入遠端主機時需要格外小心。知名的臺灣電子佈告欄 (PTT)，便是採用 Telnet BBS 技術運作。</p>
+<p>當使用者在本地計算機上使用 Telnet 向遠端主機發送 Telnet 請求時，遠端主機將接受請求，並與本地計算機建立一個 Telnet 連接。使用者可以透過該連接向遠端主機發送命令和應用程式。使用者輸入的命令和應用程式將在遠端主機上執行，並將結果透過 Telnet 連接返回到本地計算機上。</p>
+<p>為了提高 Telnet 通訊的安全性，可以使用 Telnet over SSH 協定。Telnet over SSH 協定是一種在 SSH 協定上運行的 Telnet 協定，它透過將 Telnet 通訊內容加密來保護通訊內容的安全性。使用者可以在本地計算機上使用 SSH 客戶端向遠端主機發送 SSH 請求，然後再在 SSH 通道上運行 Telnet 協定。這樣，所有的 Telnet 通訊內容都將被加密，從而保護使用者的隱私和安全。但隨著 SSH 協定的泛用性增加，Telnet 逐漸被 SSH 取代，Telnet over SSH 協定已經鮮少在使用。</p>
+<p>在 IoT 設備中，Telnet 協定的主要功能是允許使用者通過網際網路遠端登入到設備中，並且可以通過 Telnet 協定進行設備的管理和控制。使用者可以透過 Telnet 協定對智慧居家設備進行設定和控制，例如：調節溫度、控制燈光和窗簾等。除了智慧居家設備以外，Telnet 協定還可以用於工業自動化和控制系統中。例如：工業控制系統中的可程式化邏輯控制器 (Programmable Logic Controller，PLC) 可以透過 Telnet 協定進行遠端控制以實現自動化控制系統。市面上常見的路由器通常也都會預留 Telnet 作為 Debug 埠使用。</p>
+
+
+<h3 class="relative group">🐧WiFi 
+    <div id="wifi" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#wifi" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>Wi-Fi 是一種無線網路通訊協定，可以實現無線傳輸資料和網路連接。Wi-Fi 技術的基礎是 IEEE 802.11 標準的無線區域網路技術，它定義了無線網路的物理層和資料連結層。Wi-Fi 的工作原理是透過無線訊號在設備之間傳輸資料。Wi-Fi 設備包括無線網卡、路由器、中繼器等。無線網卡是 Wi-Fi 設備的核心，它可以將電腦或手機的訊號轉換成無線訊號，然後透過無線網路連接到路由器或中繼器。</p>
+<p>Wi-Fi 最大的的優點是方便快捷，使用者無需網路線就能夠實現網路連接。同時，Wi-Fi 的覆蓋範圍也比有線網路更廣，可以實現更大範圍的網路連接。然而 Wi-Fi 也存在一些缺點，儘管 Wi-Fi 技術不斷發展，速度和穩定性也不斷提高，但由於無線訊號的傳輸會受到環境干擾的影響，因此 Wi-Fi 的穩定性和速度不可避免地會受到影響。同時，Wi-Fi 的安全性也需要特別注意，因為無線訊號可以被攔截，可能會導致敏感資料的泄露。</p>
+<p>Wi-Fi 技術在 IoT 設備中扮演了重要的角色，它為設備提供了穩定的無線網路連接，使得設備之間可以實現即時通訊、資料傳輸和互動。Wi-Fi 技術的發展使得 IoT 設備的應用更加廣泛，從家庭到工業自動化控制系統都可以看到 Wi-Fi 技術的身影。在 IoT 設備中，Wi-Fi 技術的應用尤其突出。許多智慧居家設備，例如：智慧插座、智慧燈泡、智慧門鎖等都需要 Wi-Fi 連接才能實現遠端控制和監控。此外，一些工業自動化控制系統中的設備，例如：智慧監測儀器、智慧機器人等也需要 Wi-Fi 連接來實現即時通訊和資料傳輸。</p>
+
+
+<h3 class="relative group">🐧MQTT 
+    <div id="mqtt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mqtt" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>MQTT (Message Queuing Telemetry Transport) 是一種輕量級的通訊協定，主要用於 IoT 設備之間的通訊。相對於 HTTP 而言，MQTT 可以省略 HTTP Header 等資料的傳輸，減少流量的消耗。MQTT 協定具有低延遲、低頻寬、高效率等特點，這使得它成為 IoT 設備通訊的首選協定之一。</p>
+<p>MQTT 協定的特點是它可以運行在可靠性與連線品質較低的網路環境中。這使得 MQTT 協定非常適合 IoT 設備之間的通訊，因為 IoT 設備通常需要在不同的網路環境中運行，例如：Wi-Fi、行動網路等，而這些網路環境的頻寬和穩定性都有所不同。</p>
+<p>MQTT 協定的通訊模式基於發布/訂閱 (Publish/Subscribe) 模式。在 MQTT 協定中，設備可以發布一個主題 (Topic)，其他設備可以訂閱 (Subscribe) 主題，當發布者發布了一條消息，所有訂閱了這個主題的設備都可以接收到這條消息。這種通訊模式可以實現設備之間的即時通訊和資料傳輸，同時也可以減少通訊的延遲和頻寬占用。</p>
+<p>在 MQTT 協定中，設備之間的通訊可以透過 TLS 協定進行加密，從而保護通訊內容的安全性。同時，MQTT 協定還具有消息保證 (Message Assurance) 的特性可以確保消息傳輸是否順利完成。在 MQTT 中，消息保證是通過服務品質等級 (Quality of Service，QoS) 來實現。MQTT 定義了三個不同的 QoS 等級：</p>
+<p><strong>QoS 0</strong>：消息發送後，不會進行確認。這表示著消息可能會遺失或重複傳輸，但是在發送時的延遲和網路開銷最低。</p>
+<p><strong>QoS 1</strong>：消息發送後，會收到一個確認 (PUBACK)。如果沒有收到確認，發送者會重試發送消息，直到收到確認為止，確保消息至少被傳輸一次，但可能存在重複傳輸的情況。</p>
+<p><strong>QoS 2</strong>：消息發送後，會進行兩次確認 (PUBREC、PUBREL)，然後再收到最終確認 (PUBCOMP)，確保消息僅傳輸一次，沒有遺失和重複傳輸。</p>
+
+
+<h2 class="relative group">🦉IoT 常用加密技術類型 
+    <div id="iot-%E5%B8%B8%E7%94%A8%E5%8A%A0%E5%AF%86%E6%8A%80%E8%A1%93%E9%A1%9E%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#iot-%E5%B8%B8%E7%94%A8%E5%8A%A0%E5%AF%86%E6%8A%80%E8%A1%93%E9%A1%9E%E5%9E%8B" aria-label="定位點">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">🐧 通訊加密 
+    <div id="-%E9%80%9A%E8%A8%8A%E5%8A%A0%E5%AF%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#-%E9%80%9A%E8%A8%8A%E5%8A%A0%E5%AF%86" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>通訊加密是指將通訊過程中的資料進行加密，使得只有經過授權的使用者才能解密和讀取資料。IoT 通訊常用的加密技術類型有以下幾種：</p>
+<p><strong>IPSec</strong></p>
+<p>網際網路安全協定 (Internet Protocol Security，IPsec) 是一種用於保護 IP 通訊的協定。IPSec 提供了多種不同的安全性保護機制，包含加密、認證和完整性檢查。IPSec 可以在兩個端點之間建立一個安全通道，這種通道可以使用兩種不同的模式來建立：傳輸模式 (Transport mode) 和通道模式 (Tunnel Mode)。傳輸模式只對資料本身進行加密，而通道模式則對整個 IP 資料包進行加密。通道模式通常用於 VPN 連接。IPSec 可以在不需要任何特殊硬體的情況下實現通訊上的安全性。它可以在任何 IP 網路上運行，並且可以與現有的網路設備和應用程式很好的契合。</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ByJagqg82.png" alt="" />
+    
+  </figure>
+</p>
+<p><strong>SSL/TLS</strong></p>
+<p>傳輸層安全性協定 (Transport Layer Security，TLS) 和安全通訊協定 (Secure Sockets Layer，SSL) 是兩種常用的加密協定。當客戶端和伺服器建立連接後會透過握手確認使用哪種加密演算法和密鑰來保護資料。一旦握手過程完成，SSL/TLS 就會將資料加密，以確保它在傳輸過程中不被竊聽或篡改。同時，SSL/TLS 還會使用數位簽章 (Digital Signature) 確保資料的完整性，以防止資料在傳輸過程中被偽造。</p>
+<p><strong>DTLS</strong></p>
+<p>資料包傳輸層安全 (Datagram Transport Layer Security，DTLS) 是一種基於 TLS 的協定，專門用於保護使用者資料包協定 (User Datagram Protocol，UDP)。由於 UDP 是一種無連接的協定，因此它比 TCP 更容易受到攻擊。DTLS 的工作原理與 TLS 類似，當客戶端和伺服器建立連接後會透過握手確認使用哪種加密演算法和密鑰來保護資料。一旦握手過程完成，DTLS 就會將資料加密，以確保它在傳輸過程中不被竊聽或篡改。同時，DTLS 還會使用數位簽章 (Digital Signature) 確保資料的完整性，以防止資料在傳輸過程中被偽造。DTLS 的主要優點是它可以提供與 TLS 相同的安全性，同時還保留了 UDP 的特點，低延遲。這使得 DTLS 非常適合用於即時通訊應用，例如：視訊會議、語音通話等。</p>
+<p><strong>SSH</strong></p>
+<p>安全外殼協定 (Secure Shell Protocol，SSH) 是一種用於保護遠端登錄和其他網路服務的協定。SSH 可以在不安全的網路上建立安全的通訊通道以傳輸資料。它使用公共密鑰加密來驗證使用者身份。當使用者與伺服器建立 SSH 連接時，使用者的公共密鑰會被傳送到伺服器，然後伺服器使用公共密鑰對使用者進行身份驗證。防止未經授權的人士假冒使用者身份。
+SSH 可以在不同的操作系統上運行，包含：Unix、Linux、Windows 等。SSH 還有一些常用的工具，例如：scp、sftp 等，可以用於檔案傳輸、埠轉發等多種用途。</p>
+
+
+<h3 class="relative group">🐧 資料加密 
+    <div id="-%E8%B3%87%E6%96%99%E5%8A%A0%E5%AF%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#-%E8%B3%87%E6%96%99%E5%8A%A0%E5%AF%86" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>資料加密是指將資料進行加密，只有持有解密金鑰才能解密和讀取資料。IoT 設備常用的資料加密技術有以下幾種：</p>
+<p><strong>AES (Advanced Encryption Standard)</strong></p>
+<p>AES 是一種對稱式加密演算法，可以用於保護 IoT 設備蒐集和傳輸的資料。AES 使用相同的密鑰進行加密和解密，因此需要確保密鑰的安全性，是 IoT 系統中常用的加密技術之一。常見的 AES 的密鑰長度有 128、192、256 位元。AES 使用分組加密的方式，將資料分為固定大小的塊，然後對每個塊進行加密。在加密過程中，AES 還會使用填充和初始化向量 (IV) 來增強演算法的安全性。</p>
+<p><strong>RSA</strong></p>
+<p>RSA 是一種公開密鑰加密演算法，可以用於保護 IoT 設備蒐集和傳輸的資料。RSA 演算法使用兩個不同的密鑰進行加密和解密，公開密鑰可以公開分享，私有密鑰只有管理者知道。RSA 演算法的安全性基於大數分解問題。即，將一個非常大的整數，透過因數分解分解成兩個質數的乘積。由於解決這個問題以目前的技術來說非常困難，因此 RSA 演算法目前被認為是非常安全的。RSA 演算法通常用於 IoT 系統中的數位簽章和身份驗證。</p>
+<p><strong>ECC (Elliptic Curve Cryptography)</strong></p>
+<p>ECC 是一種公開密鑰加密演算法，是一種基於橢圓曲線的加密演算法。ECC 的安全性基於橢圓曲線難題，它要求在橢圓曲線上找到一個點，這個點的坐標是一個有限域上的整數。ECC 的安全性比傳統的 RSA 加密更高，因為 ECC 使用的密鑰比 RSA 更短，並且 ECC 的運算速度更快。在 IoT 網路中，ECC 的應用非常廣泛。由於 IoT 設備通常計算能力較弱，因此使用 ECC 可以大大減少加密和解密所需的計算能力。此外，ECC 可以使用更短的密鑰來實現與 RSA 相同的安全性。</p>
+
+
+<h3 class="relative group">🐧 身份驗證金鑰 
+    <div id="-%E8%BA%AB%E4%BB%BD%E9%A9%97%E8%AD%89%E9%87%91%E9%91%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#-%E8%BA%AB%E4%BB%BD%E9%A9%97%E8%AD%89%E9%87%91%E9%91%B0" aria-label="定位點">#</a>
+    </span>        
+    
+</h3>
+<p>設備和使用者必須透過身份驗證確認身份，以確保只有授權的用戶才能訪問和控制設備。IoT 設備常用的身份驗證和金鑰管理技術有以下幾種：</p>
+<p><strong>X.509</strong></p>
+<p>X.509 憑證是一種公開密鑰基礎結構 (PKI) 標準，用於確認使用者或設備的身份。它是一個數位憑證，其中包含使用者或設備的公開密鑰和其他資訊。當使用者或設備需要訪問 IoT 網路時，X.509 憑證可以以確認其身份。</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="Tonya" src="/img/author_hu9798571303467919006.jpg" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      Tonya
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">就是個喜歡看 Vtuber 的平凡資安人</div>
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+          
+
+          
+            
+                
+                  
+                
+              
+              
+<div class="flex author author-extra mt-4">
+  
+      
+      
+        
+          
+        
+        <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+          src="/img/redmeow_hu10806888911134775893.jpg" />
+      
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <a  href="http://localhost:1313/authors/redmeow/"  class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      Red Meow
+    </a>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">Red Meow</div>
+    
+    <div class="text-2xl sm:text-lg">
+      <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+<details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5">
+    
+    <summary
+        class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+        IoT 設備檢測實務：攻擊實戰與防禦指南 - 本文屬於一個選集。
+    </summary>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/introduction/">
+            § 1: 1. IoT 設備安全簡介
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        § 2: 本文
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/web_application_security_vulnerabilities/">
+            § 3: 3. IoT 網路應用系統安全弱點
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/materials/iot_security/exercise/">
+            § 4: 4. IoT 設備檢測實戰演練
+        </a>
+    </div>
+    
+    
+
+
+</details>
+
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_materials\\IoT_Security\\Basic_Knowledge\\index.md"
+        var oid_likes = "likes_materials\\IoT_Security\\Basic_Knowledge\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/materials/iot_security/introduction/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >1. IoT 設備安全簡介</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-09-08T00:00:00&#43;00:00">8 September 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/materials/iot_security/web_application_security_vulnerabilities/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >3. IoT 網路應用系統安全弱點</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-09-08T00:00:00&#43;00:00">8 September 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="捲動到頁頂" title="捲動到頁頂">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      Tonya
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      以 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 製作
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜尋"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="關閉 (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
