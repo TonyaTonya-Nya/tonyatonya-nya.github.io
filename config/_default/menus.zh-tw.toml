@@ -37,6 +37,10 @@
   pageRef = "Materials/IoT_Security"
   weight = 20
 
+[[main]]
+  name = "Friend Links"
+  pageRef = "friends"
+  weight = 5
 
 
 #[[main]]

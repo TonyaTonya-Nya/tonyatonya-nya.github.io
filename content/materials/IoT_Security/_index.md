@@ -2,6 +2,10 @@
 title: "IoT 設備檢測實務：攻擊實戰與防禦指南"
 description: "some resources to help you learn about cybersecurity"
 
+categories:
+  - IoT_Security
+  - Materials
+
 cascade:
   showPagination: True
 ---

@@ -1,9 +1,15 @@
 #progbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background-color: #dc3434; /* You can change this color */
-    z-index: 50; /* 99999 */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #dc3434;
+  /* You can change this color */
+  z-index: 50;
+  /* 99999 */
+}
+
+.bold-text {
+  font-weight: bold;
+}

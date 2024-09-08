@@ -2,7 +2,7 @@ disabled = false
 languageCode = "zh-tw"
 languageName = "繁體中文"
 weight = 1
-title = "Tonya's Edger Corner"
+title = "Tonya's Blog"
 
 [params]
   displayName = "繁體中文"
@@ -21,8 +21,8 @@ title = "Tonya's Edger Corner"
 #   imageQuality = 96
    headline = "OSCP | OSWA | CRTP"
    bio = "就是個喜歡看 Vtuber 的平凡資安人"
-#   links = [
-#     { email = "mailto:hello@your_domain.com" },
+   links = [
+     { email = "mailto:quontonya@gmail.com" },
 #     { link = "https://link-to-some-website.com/" },
 #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
 #     { apple = "https://www.apple.com" },
@@ -35,7 +35,7 @@ title = "Tonya's Edger Corner"
 #     { facebook = "https://facebook.com/username" },
 #     { flickr = "https://www.flickr.com/photos/username/" },
 #     { foursquare = "https://foursquare.com/username" },
-#     { github = "https://github.com/username" },
+     { github = "https://github.com/TonyaTonya-Nya" },
 #     { gitlab = "https://gitlab.com/username" },
 #     { google = "https://www.google.com/" },
 #     { hashnode = "https://username.hashnode.dev" },
@@ -44,7 +44,7 @@ title = "Tonya's Edger Corner"
 #     { keybase = "https://keybase.io/username" },
 #     { kickstarter = "https://www.kickstarter.com/profile/username" },
 #     { lastfm = "https://lastfm.com/user/username" },
-#     { linkedin = "https://linkedin.com/in/username" },
+     { linkedin = "https://www.linkedin.com/in/tonyawu/" },
 #     { mastodon = "https://mastodon.instance/@username" },
 #     { medium = "https://medium.com/username" },
 #     { microsoft = "https://www.microsoft.com/" },
@@ -70,4 +70,4 @@ title = "Tonya's Edger Corner"
 #     { youtube = "https://youtube.com/username" },
 #     { ko-fi = "https://ko-fi.com/username" },
 #     { codeberg = "https://codeberg.org/username"},
-#   ]
+   ]

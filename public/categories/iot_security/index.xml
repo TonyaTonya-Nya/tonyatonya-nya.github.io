@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>IoT_Security on Tonya&#39;s Edger Corner</title>
+    <title>IoT_Security on Tonya&#39;s Blog</title>
     <link>http://localhost:1313/categories/iot_security/</link>
-    <description>Recent content in IoT_Security on Tonya&#39;s Edger Corner</description>
+    <description>Recent content in IoT_Security on Tonya&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <managingEditor>quontonya@gmail.com (Tonya)</managingEditor>
@@ -46,6 +46,16 @@
       <pubDate>Sun, 08 Sep 2024 00:00:00 +0000</pubDate>
       <author>quontonya@gmail.com (Tonya)</author>
       <guid>http://localhost:1313/materials/iot_security/introduction/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>IoT 設備檢測實務：攻擊實戰與防禦指南</title>
+      <link>http://localhost:1313/materials/iot_security/</link>
+      <pubDate>Sun, 08 Sep 2024 00:00:00 +0000</pubDate>
+      <author>quontonya@gmail.com (Tonya)</author>
+      <guid>http://localhost:1313/materials/iot_security/</guid>
       <description></description>
       
     </item>
