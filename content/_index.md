@@ -50,6 +50,12 @@ Tonya，在臺科大連讀了 6 年的學士 & 碩士的半路出家資安仔，
 
 <h2 class="bold-text">2024</h2>
 <p class="bold-text">【國立金門大學】從 0 開始的滲透測試</p>
+<p class="bold-text">【國立金門大學】威脅獵補</p>
+
+<h2 class="bold-text">2025</h2>
+<p class="bold-text">【資安大會】ISIP 校友分享</p>
+<p class="bold-text">【國立金門大學】我魚竿都準備好了，你跟我說禁止 phishing?</p>
+<p class="bold-text">【國立金門大學】不只 CTF，那些 Web 在現實到底長什麼樣子</p>
 
 {{< /timelineItem >}}
 
