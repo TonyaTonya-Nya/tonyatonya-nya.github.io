@@ -358,7 +358,7 @@ u 77013ad0
 
 接著執行 rp++，這裡有一個很酷的雷，我不確定是不是 rp++ 版本的問題，但如果你把 `libspp.dll` 複製到其它路徑再使用 rp++ 取得 gadgets，得出的 gadgets 會是錯的。這真的很奇怪，但總之，我建議不要為自己添麻煩，在 narly 的輸出結果中會給你 dll 的絕對路徑，直接複製貼上就好了。而我的 rp++ 能夠指定 virtual address，因此我填入了 `libspp` 的 base address，這樣輸出的 gadgets 就不需要額外再加上 base address 就能直接使用。並且我指定了 ROP gadget 的長度限制在 `5`。這也代表每個 gadget 在 return 前只會有最多 `5` 個操作。你當然可以指定更高的數字，這麼一來你能夠取得更多的可用 gadget。但以我的經驗來說，超過 `5` 以上的 gadget 在進行處理時會變得很麻煩，除非我真的無法疊出 ROP，否則我不會考慮增加這個數字。
 ```powershell
-C:\Users\tonya\Desktop\ROP\rp-win32.目標程式 -r 5 --va 0x10000000 --file "C:\Program Files\Sync Breeze Enterprise\bin\libspp.dll" > rop5.txt
+C:\Users\tonya\Desktop\ROP\rp-win32.exe -r 5 --va 0x10000000 --file "C:\Program Files\Sync Breeze Enterprise\bin\libspp.dll" > rop5.txt
 ```
 
 在執行完 rp++ 後，你應該會發現大量的 gadgets。通常來說這些 gadgets 在專業的 pwner 手中都是寶藏，他們總有辦法利用這些 gadgets。但很明顯地，我並不是，所以有一些相對起來非常難以使用的 gadgets 我會直接捨棄。 以下是我會捨棄的 gadget 的正規表達式，只要在任何一個支援正規表達式的 IDE 上將其取代為空白，你就能有效減少 gadget 的數量。至少對於初心者而言，這能幫助你減少大量篩選 gadget 的時間。

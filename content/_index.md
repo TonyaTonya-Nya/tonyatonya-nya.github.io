@@ -56,7 +56,11 @@ Tonya，在臺科大連讀了 6 年的學士 & 碩士的半路出家資安仔，
 <p class="bold-text">【資安大會】ISIP 校友分享</p>
 <p class="bold-text">【國立金門大學】我魚竿都準備好了，你跟我說禁止 phishing?</p>
 <p class="bold-text">【國立金門大學】不只 CTF，那些 Web 在現實到底長什麼樣子</p>
-
+<p class="bold-text">【AIS3】只要來這裡就不用打第 13 組 HTB Pro Lab 所以我來了</p>
+<p class="bold-text">【國立臺灣科技大學】資安傳說 IV：秘法領域 the 1st</p>
+<p class="bold-text">【國立金門大學】沒有遊戲沒有資安 - 老遊戲怎麼能變成 CTF 的?</p>
+<p class="bold-text">【國立臺灣科技大學】Hey AI，幫我攻擊這個目標</p>
+<p class="bold-text">【國立金門大學】業界座談 - AI RedTeam 還是 AI Script Kiddle?</p>
 {{< /timelineItem >}}
 
 {{< timelineItem icon="bluesky" header="我の社團" badge="Community" >}}
