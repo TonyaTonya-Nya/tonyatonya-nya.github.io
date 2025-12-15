@@ -10,6 +10,7 @@ Tonya，在臺科大連讀了 6 年的學士 & 碩士的半路出家資安仔，
 
 {{< timelineItem icon="star" header="我の證照" badge="Certificate" >}}
 {{< gallery >}}
+<img src="img/OSED.png" class="grid-w33" />
 <img src="img/OSEP.png" class="grid-w33" />
 <img src="img/OSCP+.png" class="grid-w33" />
 <img src="img/OSCP.png" class="grid-w33" />
